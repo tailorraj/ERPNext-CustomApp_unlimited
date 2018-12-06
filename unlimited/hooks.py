@@ -58,7 +58,10 @@ fixtures = [
     },
 	"Portal Settings",
 	"Workflow",
-	"Email Alert"
+	{
+        'doctype': 'Email Alert',
+        'filters': [['is_standard', '!=', '1']],
+    }
 ]
 
 # automatically create page for each record of this doctype
