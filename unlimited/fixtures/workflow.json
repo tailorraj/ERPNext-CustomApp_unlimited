@@ -1,0 +1,81 @@
+[
+ {
+  "docstatus": 0, 
+  "doctype": "Workflow", 
+  "document_type": "Eligibility Form", 
+  "is_active": 1, 
+  "modified": "2018-11-27 08:33:36.116400", 
+  "name": "Eligibility Form Workflow", 
+  "override_status": 0, 
+  "states": [
+   {
+    "allow_edit": "Eligibility Form User", 
+    "doc_status": "0", 
+    "message": null, 
+    "state": "Open", 
+    "update_field": null, 
+    "update_value": null
+   }, 
+   {
+    "allow_edit": "Eligibility Form Manager", 
+    "doc_status": "0", 
+    "message": null, 
+    "state": "In Progress", 
+    "update_field": null, 
+    "update_value": null
+   }, 
+   {
+    "allow_edit": "Eligibility Form Manager", 
+    "doc_status": "1", 
+    "message": null, 
+    "state": "Approved", 
+    "update_field": null, 
+    "update_value": null
+   }, 
+   {
+    "allow_edit": "Eligibility Form User", 
+    "doc_status": "0", 
+    "message": null, 
+    "state": "Rejected", 
+    "update_field": "", 
+    "update_value": null
+   }, 
+   {
+    "allow_edit": "Eligibility Form User", 
+    "doc_status": "0", 
+    "message": null, 
+    "state": "Cancelled", 
+    "update_field": null, 
+    "update_value": null
+   }
+  ], 
+  "transitions": [
+   {
+    "action": "Review", 
+    "allowed": "Eligibility Form User", 
+    "next_state": "In Progress", 
+    "state": "Open"
+   }, 
+   {
+    "action": "Reject", 
+    "allowed": "Eligibility Form User", 
+    "next_state": "Cancelled", 
+    "state": "Open"
+   }, 
+   {
+    "action": "Approve", 
+    "allowed": "Eligibility Form Manager", 
+    "next_state": "Approved", 
+    "state": "In Progress"
+   }, 
+   {
+    "action": "Approve", 
+    "allowed": "Eligibility Form User", 
+    "next_state": "Open", 
+    "state": "Cancelled"
+   }
+  ], 
+  "workflow_name": "Eligibility Form Workflow", 
+  "workflow_state_field": "workflow_state"
+ }
+]

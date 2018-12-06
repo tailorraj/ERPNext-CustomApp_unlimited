@@ -1,0 +1,182 @@
+[
+ {
+  "custom_menu": [
+   {
+    "enabled": 1, 
+    "reference_doctype": "Eligibility Form", 
+    "role": "Customer", 
+    "route": "/eligibility-form", 
+    "target": null, 
+    "title": "Eligibility Form"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Sales Order", 
+    "role": "Customer", 
+    "route": "/orders", 
+    "target": null, 
+    "title": "Orders"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": null, 
+    "role": "Customer", 
+    "route": "/products", 
+    "target": null, 
+    "title": "Products"
+   }
+  ], 
+  "default_role": "Customer", 
+  "docstatus": 0, 
+  "doctype": "Portal Settings", 
+  "hide_standard_menu": 1, 
+  "menu": [
+   {
+    "enabled": 1, 
+    "reference_doctype": "Project", 
+    "role": null, 
+    "route": "/project", 
+    "target": null, 
+    "title": "Projects"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Request for Quotation", 
+    "role": "Supplier", 
+    "route": "/rfq", 
+    "target": null, 
+    "title": "Request for Quotations"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Supplier Quotation", 
+    "role": "Supplier", 
+    "route": "/supplier-quotations", 
+    "target": null, 
+    "title": "Supplier Quotation"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Quotation", 
+    "role": "Customer", 
+    "route": "/quotations", 
+    "target": null, 
+    "title": "Quotations"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Sales Order", 
+    "role": "Customer", 
+    "route": "/orders", 
+    "target": null, 
+    "title": "Orders"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Sales Invoice", 
+    "role": "Customer", 
+    "route": "/invoices", 
+    "target": null, 
+    "title": "Invoices"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Delivery Note", 
+    "role": "Customer", 
+    "route": "/shipments", 
+    "target": null, 
+    "title": "Shipments"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Issue", 
+    "role": "Customer", 
+    "route": "/issues", 
+    "target": null, 
+    "title": "Issues"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Address", 
+    "role": null, 
+    "route": "/addresses", 
+    "target": null, 
+    "title": "Addresses"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Timesheet", 
+    "role": "Customer", 
+    "route": "/timesheets", 
+    "target": null, 
+    "title": "Timesheets"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Lab Test", 
+    "role": "Patient", 
+    "route": "/lab-test", 
+    "target": null, 
+    "title": "Lab Test"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Consultation", 
+    "role": "Patient", 
+    "route": "/prescription", 
+    "target": null, 
+    "title": "Prescription"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Patient Appointment", 
+    "role": "Patient", 
+    "route": "/patient-appointments", 
+    "target": null, 
+    "title": "Patient Appointment"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Fees", 
+    "role": "Student", 
+    "route": "/fees", 
+    "target": null, 
+    "title": "Fees"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Newsletter", 
+    "role": null, 
+    "route": "/newsletters", 
+    "target": null, 
+    "title": "Newsletter"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Student Admission", 
+    "role": null, 
+    "route": "/admissions", 
+    "target": null, 
+    "title": "Admission"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Grant Application", 
+    "role": "Non Profit Portal User", 
+    "route": "/grant-application", 
+    "target": null, 
+    "title": "Grant Application"
+   }, 
+   {
+    "enabled": 1, 
+    "reference_doctype": "Chapter", 
+    "role": null, 
+    "route": "/chapters", 
+    "target": null, 
+    "title": "Chapter"
+   }
+  ], 
+  "modified": "2018-12-06 07:06:43.168595", 
+  "name": "Portal Settings"
+ }
+]
