@@ -39,9 +39,19 @@ def has_approved_form(user):
 			and workflow_state in ("Approved")""", (str(user)), as_dict = 1)
 	if get_form_list:
 		if len(get_form_list) > 0:
-			has_approved_form = "False"
+			has_approved_form = "True"
 
 	return has_approved_form
+	
+@frappe.whitelist(allow_guest=True)
+def is_form_rejected(frm_name):
+	has_rejected = "False"
+	get_form_list = frappe.db.sql("""SELECT workflow_state FROM `tabEligibility Form` WHERE name = %s""", (str(frm_name)), as_dict = 1)
+	if get_form_list:
+		if len(get_form_list) > 0:
+			has_rejected = "True" if get_form_list[0]['workflow_state'] == 'Rejected' else "False"
+
+	return has_rejected
 
 @frappe.whitelist(allow_guest=True)
 def get_sample_image():

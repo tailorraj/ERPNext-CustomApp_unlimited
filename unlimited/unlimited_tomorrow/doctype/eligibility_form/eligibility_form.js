@@ -9,6 +9,28 @@ frappe.ui.form.on('Eligibility Form', {
 	}
 });
 
+cur_frm.cscript.on_submit = function(doc, cdt, cdn) { 
+
+	//cur_frm.print_doc();
+	var me = this;
+	//var doc = frm.doc
+	//var print_format = frm.doc.memo_type; // print format name
+	var print_format = 'Standard';
+
+	var w = window.open(frappe.urllib.get_full_url("/printview?"
+		+"doctype="+encodeURIComponent(cdt)
+		+"&name="+encodeURIComponent(cdn)
+		+"&trigger_print=1"
+		+"&format=" + print_format
+		+"&no_letterhead=0"
+		+(me.lang_code ? ("&_lang="+me.lang_code) : "")));
+
+	if(!w) {
+		msgprint(__("Please enable pop-ups for printing.")); return;
+	}
+
+ }
+
 cur_frm.cscript['Reject Request'] = function(){
 	var dialog = new frappe.ui.Dialog({
 		title: "Reject Request",

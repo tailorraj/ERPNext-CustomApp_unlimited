@@ -57,11 +57,7 @@ fixtures = [
         'filters': [['module', '=', 'Unlimited Tomorrow']],
     },
 	"Portal Settings",
-	"Workflow",
-	{
-        'doctype': 'Email Alert',
-        'filters': [['is_standard', '!=', '1']],
-    }
+	"Workflow"
 ]
 
 # automatically create page for each record of this doctype

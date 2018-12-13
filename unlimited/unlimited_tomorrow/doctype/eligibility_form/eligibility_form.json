@@ -109,7 +109,7 @@
   {
    "allow_bulk_edit": 0, 
    "allow_on_submit": 0, 
-   "bold": 0, 
+   "bold": 1, 
    "collapsible": 0, 
    "columns": 0, 
    "depends_on": "eval:doc.is_experience_prosthetics == 'Yes'", 
@@ -300,7 +300,7 @@
  "issingle": 0, 
  "istable": 0, 
  "max_attachments": 0, 
- "modified": "2018-12-05 02:30:50.725741", 
+ "modified": "2018-12-12 08:17:26.204186", 
  "modified_by": "Administrator", 
  "module": "Unlimited Tomorrow", 
  "name": "Eligibility Form", 

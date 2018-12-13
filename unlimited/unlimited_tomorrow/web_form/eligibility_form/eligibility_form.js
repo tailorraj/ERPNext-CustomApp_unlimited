@@ -39,29 +39,85 @@ frappe.ready(function() {
 
 					// Insert attach image html to show in webform.
 					$( "<img src = "+ attach_image_url +" />" ).insertAfter($('p.small:has(a)').parent().find('label'));
+					
+					// Get if url having the "name" parameter.
+					var has_name_param = getUrlVars()["name"];
+					if(has_name_param)
+					{
+						// Check if the form state is "Rejected" or not.
+						frappe.call({
+							method: 'unlimited.unlimited_tomorrow.web_form.eligibility_form.eligibility_form.is_form_rejected',
+							args: {frm_name: has_name_param},
+							callback: function(r){
+								if (r.message == 'False'){
+									// Hide rejection reason.
+									$("[data-fieldname=rejection_reason]").parent().hide();
+								}
+							}
+						});
+					}
 
 				}
 				else
 				{
 					$("[data-fieldname=rejection_reason]").show();
+					
+					// Check if url has query string named "new".
+					var has_new_param = getUrlVars()["new"];
+					if(has_new_param)
+					{
+						// Get sample image.
+						frappe.call({
+							method: 'unlimited.unlimited_tomorrow.web_form.eligibility_form.eligibility_form.get_sample_image',
+							args: {},
+							callback: function(r){
+								if (r.message){
 
-					// Get sample image.
-					frappe.call({
-						method: 'unlimited.unlimited_tomorrow.web_form.eligibility_form.eligibility_form.get_sample_image',
-						args: {},
-						callback: function(r){
-							if (r.message){
-
-								// Check if url has query string named "new".
-								var has_new_param = getUrlVars()["new"];
-								if(has_new_param)
-								{
 									// Show sample image html to show in new webform.
 									$('span.small').find('div').prepend("<ul><li><strong>Sample Image</strong></li><ul class='sample-image' style='list-style-type: none;'><li><img title = 'sample image' height='100px' width='100px' src = "+ r.message +" /></li></ul></ul>");
+									$("[data-fieldname=rejection_reason]").parent().hide();
+								
 								}
 							}
-						}
-					});
+						});
+					}
+					
+					hide_show_prosthetics_history();
+					
+					// Get if url having the "name" parameter.
+					var has_name_param = getUrlVars()["name"];
+					if(has_name_param)
+					{
+						// Check if the form state is "Rejected" or not.
+						frappe.call({
+							method: 'unlimited.unlimited_tomorrow.web_form.eligibility_form.eligibility_form.is_form_rejected',
+							args: {frm_name: has_name_param},
+							callback: function(r){
+								if (r.message == 'True'){
+									// Make controls readonly if form has been rejected.
+									$('input, textarea, select').attr('readonly','readonly');
+									$('button').remove();
+									
+									// Set attribute and class to prosthetics history
+	    								$("[data-fieldname=prosthetics_history]").parent().removeClass("has-error");
+	    								$("[data-fieldname=prosthetics_history]").removeAttr("data-reqd");
+	    								
+	    								// Hide picture note.
+									$("p.small,.picture_note").hide();
+
+									// Get attch image url.
+									var attach_image_url = $('p.small').find('a').attr('href');
+
+									// Insert attach image html to show in webform.
+									$( "<img src = "+ attach_image_url +" />" ).insertAfter($('p.small:has(a)').parent().find('label'));
+								}
+								else
+								{
+									$("[data-fieldname=rejection_reason]").parent().hide();
+								}
+							}
+						});	
+					}
 				}
 			}
 		}
@@ -80,7 +136,8 @@ frappe.ready(function() {
 	    }
 	    return vars;
 	}
-
+	
+	// Set prosthetics history class and attribute.
 	function hide_show_prosthetics_history()
 	{
 		if($("[data-fieldname=is_experience_prosthetics]").val() == 'No')
@@ -96,9 +153,8 @@ frappe.ready(function() {
 	    	$("[data-fieldname=prosthetics_history]").attr("data-reqd",1);
 	    }
 	}
-
-	hide_show_prosthetics_history();
-
+	
+	// Change event of prosthetics selectbox.
 	$("[data-fieldname=is_experience_prosthetics]").change(function(){
 		hide_show_prosthetics_history();
 	});
