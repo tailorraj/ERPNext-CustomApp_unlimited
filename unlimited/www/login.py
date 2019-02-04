@@ -130,6 +130,13 @@ def sign_up(email, full_name, dob, phone_number, address, guardian_name, redirec
 		user.flags.ignore_permissions = True
 		user.insert()
 
+		customer = frappe.get_doc({
+			"doctype":"Customer",
+			"customer_name": full_name,
+			"customer_type": "Individual"
+		})
+		customer.flags.ignore_permissions = True
+		customer.insert()
 
 		# set default signup role as per Portal Settings
 		default_role = frappe.db.get_value("Portal Settings", None, "default_role")
