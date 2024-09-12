@@ -2,6 +2,3 @@
 
 Customization
 
-#### License
-
-info@augustinfotech.com
